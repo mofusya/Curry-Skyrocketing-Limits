@@ -1,0 +1,4 @@
+Copyright (c) 2026 Omotinomoti
+
+All codes(.java, .class, .json files) is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/
+All other files is licensed as All Rights Reserved.
