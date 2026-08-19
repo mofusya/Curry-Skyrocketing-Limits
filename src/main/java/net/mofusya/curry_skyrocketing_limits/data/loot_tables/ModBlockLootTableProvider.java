@@ -1,4 +1,4 @@
-package net.mofusya.examplemod.data.loot_tables;
+package net.mofusya.curry_skyrocketing_limits.data.loot_tables;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;

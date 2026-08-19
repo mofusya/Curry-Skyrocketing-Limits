@@ -1,9 +1,9 @@
-package net.mofusya.examplemod.data;
+package net.mofusya.curry_skyrocketing_limits.data;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.mofusya.examplemod.data.loot_tables.ModBlockLootTableProvider;
+import net.mofusya.curry_skyrocketing_limits.data.loot_tables.ModBlockLootTableProvider;
 
 import java.util.List;
 import java.util.Set;
