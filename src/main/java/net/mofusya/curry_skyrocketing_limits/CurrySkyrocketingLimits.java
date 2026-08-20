@@ -11,6 +11,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.mofusya.curry_skyrocketing_limits.config.CslJsonConfig;
 import net.mofusya.curry_skyrocketing_limits.curryingredient.CurryIngredient;
 import net.mofusya.curry_skyrocketing_limits.curryingredient.CurryIngredientManager;
+import net.mofusya.curry_skyrocketing_limits.items.CslCreativeTabs;
 import net.mofusya.curry_skyrocketing_limits.items.CslItems;
 import net.mofusya.curry_skyrocketing_limits.util.ItemHelpers;
 import org.slf4j.Logger;
@@ -24,9 +25,9 @@ public class CurrySkyrocketingLimits {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         CslItems.ITEMS.register(modEventBus);
+        CslCreativeTabs.CREATIVE_TABS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
-        modEventBus.addListener(this::addCreative);
 
         createCurryIngredients();
         CslJsonConfig.CUSTOM_INGREDIENTS.load();
@@ -34,12 +35,5 @@ public class CurrySkyrocketingLimits {
     }
 
     public static void createCurryIngredients() {
-        CurryIngredientManager.create(new ResourceLocation("diamond"), new CurryIngredient(), CurryIngredientManager.Type.ITEMS);
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            ItemHelpers.itemRegistries2ItemStacks(CslItems.ITEMS.getItems()).forEach(event::accept);
-        }
     }
 }

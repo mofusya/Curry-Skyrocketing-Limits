@@ -160,6 +160,9 @@ dependencies {
 
     implementation fg.deobf("curse.maven:ornatelib-1479095:8310029")
 
+    implementation fg.deobf("curse.maven:mekanism-268560:6552911")
+    implementation fg.deobf("curse.maven:mekanism-generators-268566:6552914")
+
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 

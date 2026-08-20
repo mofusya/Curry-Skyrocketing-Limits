@@ -1,6 +1,7 @@
 package net.mofusya.curry_skyrocketing_limits.items.item;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -17,15 +18,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.mofusya.curry_skyrocketing_limits.C;
 import net.mofusya.curry_skyrocketing_limits.accessor.FoodPropertiesAccessor;
 import net.mofusya.curry_skyrocketing_limits.curryingredient.CurryIngredient;
 import net.mofusya.curry_skyrocketing_limits.curryingredient.CurryIngredientManager;
+import net.mofusya.curry_skyrocketing_limits.items.render.CurryRenderer;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class CurryItem extends Item {
     public CurryItem(Properties build) {
@@ -90,6 +96,19 @@ public class CurryItem extends Item {
 
     public static FoodProperties defaultFoodProperties() {
         return new FoodProperties.Builder().nutrition(0).build();
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        super.initializeClient(consumer);
+
+        consumer.accept(new IClientItemExtensions() {
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return new CurryRenderer();
+            }
+        });;
     }
 
     @Override

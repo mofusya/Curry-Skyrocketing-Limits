@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "O",
+    "#"
+  ],
+  "key": {
+    "O": {
+      "item": "ender_pearl"
+    },
+    "#": {
+      "item": "bucket"
+    }
+  },
+  "result": {
+    "item": "curry_skyrocketing_limits:curry_base",
+    "count": 4
+  }
+}
